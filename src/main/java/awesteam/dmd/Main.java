@@ -1,13 +1,18 @@
 package awesteam.dmd;
 
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import awesteam.dmd.utils.DatabaseManager;
+import awesteam.dmd.utils.LogManager;
+import lombok.extern.java.Log;
 
+import java.util.logging.Level;
+
+@Log
 public class Main {
 
-    public static void main(String[] args) throws IllegalAccessException, InstantiationException, SQLException {
-        DriverManager.registerDriver(org.postgresql.Driver.class.newInstance());
-        System.out.println("Ok, system can run");
+    public static void main(String[] args){
+        LogManager.getInstance();
+        DatabaseManager.getInstance();
+        log.log(Level.FINE,"Ok, system can run");
     }
 
 }
